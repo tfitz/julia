@@ -1,7 +1,11 @@
 FROM debian:jessie
 
 RUN apt-get update \
-	&& apt-get install -y --no-install-recommends ca-certificates git \
+	&& apt-get install -y --no-install-recommends \
+                           ca-certificates \
+                           git \
+                           build-essential \
+                           hdf5-tools \
 	&& rm -rf /var/lib/apt/lists/*
 
 ENV JULIA_PATH /usr/local/julia
@@ -22,5 +26,8 @@ RUN mkdir $JULIA_PATH \
 
 
 ENV PATH $JULIA_PATH/bin:$PATH
+
+ADD packages.jl $JULIA_PATH/
+RUN $JULIA_PATH/bin/julia $JULIA_PATH/packages.jl
 
 CMD ["julia"]
