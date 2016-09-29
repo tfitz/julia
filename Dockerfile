@@ -6,6 +6,8 @@ RUN apt-get update \
                            git \
                            build-essential \
                            hdf5-tools \
+                           gfortran \
+                           pkg-config \
 	&& rm -rf /var/lib/apt/lists/*
 
 ENV JULIA_PATH /usr/local/julia
