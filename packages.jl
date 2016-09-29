@@ -4,13 +4,11 @@ packagelist = ["PyCall",
                "Roots",
                "Polynomials",
                "HDF5",
-               "MAT",
-               "Optim"];
+               "MAT"];
 
 Pkg.update()
 for pkg in packagelist
     Pkg.add(pkg)
     eval( parse( "using $(pkg)" ) )
-    workspace()
 end
 Pkg.update()

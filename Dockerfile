@@ -3,12 +3,10 @@ FROM ubuntu:latest
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
                            ca-certificates \
-                           curl \
                            git \
                            build-essential \
                            hdf5-tools \
                            gfortran \
-                           liblapack-dev \
 	&& rm -rf /var/lib/apt/lists/*
 
 ENV JULIA_PATH /usr/local/julia
